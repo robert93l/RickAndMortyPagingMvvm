@@ -3,7 +3,10 @@ package com.example.rickandmortypagingmvvm
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -26,7 +29,42 @@ class MainActivity : AppCompatActivity() {
 
         setUpRv()
         setUpViewModel()
+        refreshswipe()
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_search_character, menu)
+        val item = menu.findItem(R.id.searchCharacterMenu)
+        val searchView = item?.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                  /*  viewModel.searchMovies(query)
+                    loadSearch()*/
+
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText != null) {
+                  /*  viewModel.searchMovies(newText)*/
+                }
+                return true
+            }
+
+        })
+        return true
+    }
+
+    private fun refreshswipe() {
+        binding.swiperick.setOnRefreshListener {
+
+            setUpRv()
+            setUpViewModel()
+            binding.swiperick.isRefreshing = false
+        }
     }
 
     private fun setUpRv() {

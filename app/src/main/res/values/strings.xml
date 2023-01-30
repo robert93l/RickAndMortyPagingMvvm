@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RickAndMortyPagingMvvm</string>
+    <string name="searchcharacter">searchCharacter</string>
 </resources>

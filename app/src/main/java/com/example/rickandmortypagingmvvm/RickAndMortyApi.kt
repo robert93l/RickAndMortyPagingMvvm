@@ -13,4 +13,13 @@ interface RickAndMortyApi {
 
     ): Response<RickAndMorty>
 
+    @GET("api/character")
+    suspend fun getSearchCharacters(
+        @Query("page") page: Int,
+        @Query("name")  characterName: String
+
+    ): Response<RickAndMorty>
+
+
+
 }

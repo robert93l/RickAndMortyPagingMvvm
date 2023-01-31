@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: RickAndMortyViewModel by viewModels()
     private lateinit var adapterCharacter: CharacterAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,8 +30,22 @@ class MainActivity : AppCompatActivity() {
 
         setUpRv()
         setUpViewModel()
+        loadSearch()
         refreshswipe()
 
+    }
+
+    private fun loadSearch() {
+        /* binding.searchprogress.progressBar.visibility = View.VISIBLE*/
+
+        lifecycleScope.launch {
+            viewModel.searchCharacter.collect {
+                adapterCharacter.submitData(it)
+
+                /* binding.searchResults.visibility = View.VISIBLE*/
+                /* binding.searchprogress.progressBar.visibility = View.GONE*/
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,8 +55,8 @@ class MainActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
-                  /*  viewModel.searchMovies(query)
-                    loadSearch()*/
+                    viewModel.searchCharacterMorty(query)
+                    loadSearch()
 
                 }
                 return true
@@ -49,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null) {
-                  /*  viewModel.searchMovies(newText)*/
+                    viewModel.searchCharacterMorty(newText)
                 }
                 return true
             }
@@ -69,10 +84,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRv() {
 
+
+
         adapterCharacter = CharacterAdapter()
+
         binding.recyclerRickMorty.apply {
             adapter = adapterCharacter
-          /*  layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)*/
+            /*  layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)*/
+            layoutManager = GridLayoutManager(this@MainActivity, 2)
+            setHasFixedSize(true)
+        }
+
+        binding.recyclerRickMorty.apply {
+            adapter = adapterCharacter
             layoutManager = GridLayoutManager(this@MainActivity, 2)
             setHasFixedSize(true)
         }

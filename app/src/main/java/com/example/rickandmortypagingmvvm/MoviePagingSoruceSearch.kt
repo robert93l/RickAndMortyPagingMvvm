@@ -9,8 +9,10 @@ import java.io.IOException
 import javax.inject.Inject
 
 
-class MoviePagingSourceRickAndMorty @Inject constructor(
-    private val movieService: RickAndMortyApi,
+
+class MoviePagingSourceSearch @Inject constructor(
+    private val moviservice: RickAndMortyApi,
+    private val query: String
 ) : PagingSource<Int, CharacterMorty>() {
     override fun getRefreshKey(state: PagingState<Int, CharacterMorty>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
@@ -23,10 +25,10 @@ class MoviePagingSourceRickAndMorty @Inject constructor(
 
         return try {
             val currentPageList = params.key ?: MOVIES_STARTING_PAGE_INDEX
-            val response = movieService.getCharacters(
+            val response = moviservice.getSearchCharacters(
                 currentPageList,
+                characterName = query
             )
-
             val responseList = mutableListOf<CharacterMorty>()
 
             if (response.isSuccessful) {

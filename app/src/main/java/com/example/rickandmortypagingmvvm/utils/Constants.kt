@@ -1,4 +1,4 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.utils
 
 object Constants {
 

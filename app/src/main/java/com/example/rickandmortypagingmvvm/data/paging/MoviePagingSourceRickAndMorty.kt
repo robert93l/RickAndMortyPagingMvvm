@@ -1,8 +1,9 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.rickandmortypagingmvvm.Constants.MOVIES_STARTING_PAGE_INDEX
+import com.example.rickandmortypagingmvvm.utils.Constants.MOVIES_STARTING_PAGE_INDEX
+import com.example.rickandmortypagingmvvm.network.RickAndMortyApi
 import com.example.rickandmortypagingmvvm.data.CharacterMorty
 import retrofit2.HttpException
 import java.io.IOException

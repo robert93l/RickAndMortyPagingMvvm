@@ -1,6 +1,8 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.di
 
 
+import com.example.rickandmortypagingmvvm.utils.Constants
+import com.example.rickandmortypagingmvvm.network.RickAndMortyApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

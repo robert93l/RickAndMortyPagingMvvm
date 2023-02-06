@@ -1,4 +1,4 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.network
 
 import com.example.rickandmortypagingmvvm.data.RickAndMorty
 import retrofit2.Response

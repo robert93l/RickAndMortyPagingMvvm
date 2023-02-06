@@ -1,16 +1,16 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.rickandmortypagingmvvm.R
 import com.example.rickandmortypagingmvvm.databinding.ActivityMainBinding
+import com.example.rickandmortypagingmvvm.ui.viewmodel.RickAndMortyViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

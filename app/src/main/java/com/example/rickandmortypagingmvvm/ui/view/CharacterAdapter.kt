@@ -1,4 +1,4 @@
-package com.example.rickandmortypagingmvvm
+package com.example.rickandmortypagingmvvm.ui.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +9,12 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.rickandmortypagingmvvm.R
 import com.example.rickandmortypagingmvvm.data.CharacterMorty
 
 
 class CharacterAdapter() :
-    PagingDataAdapter<CharacterMorty,CharacterAdapter.ViewHolder>(DiffUtilCallBack()) {
+    PagingDataAdapter<CharacterMorty, CharacterAdapter.ViewHolder>(DiffUtilCallBack()) {
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val nameTextView: TextView = view.findViewById(R.id.nameTextView)

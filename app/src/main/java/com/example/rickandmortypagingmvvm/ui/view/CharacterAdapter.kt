@@ -25,6 +25,8 @@ class CharacterAdapter() :
 
                 Glide.with(imageView.context)
                     .load(characterRick.image)
+                    .override(300,300)
+                    .placeholder(R.drawable.baseline_person_24)
                     .into(imageView)
             }
         }
@@ -42,7 +44,6 @@ class CharacterAdapter() :
             if (item != null) {
                 holder.bind(item)
             }
-
         }
 
     class DiffUtilCallBack: DiffUtil.ItemCallback<CharacterMorty>() {
@@ -51,7 +52,7 @@ class CharacterAdapter() :
         }
 
         override fun areContentsTheSame(oldItem: CharacterMorty, newItem: CharacterMorty): Boolean {
-            return  oldItem.id == newItem.id
+            return  oldItem.id == newItem.id && oldItem.name == newItem.name
         }
     }
     }

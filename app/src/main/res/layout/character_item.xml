@@ -1,47 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
-
+    app:cardElevation="5dp"
+    android:layout_margin="15dp"
+    app:cardMaxElevation="5dp"
     android:orientation="vertical">
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="4dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     >
-    
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="15dp">
-
 
         <ImageView
             android:id="@+id/imageView"
             android:src="@drawable/ic_launcher_background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hola"
-            android:gravity="center"
-            android:textSize="20sp"
-            />
-    </LinearLayout>
+            android:adjustViewBounds="true"
+           />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hola"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        />
 
 
 
@@ -49,4 +39,4 @@
 
 
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>

@@ -36,14 +36,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadSearch() {
-        /* binding.searchprogress.progressBar.visibility = View.VISIBLE*/
 
         lifecycleScope.launch {
             viewModel.searchCharacter.collect {
                 adapterCharacter.submitData(it)
 
-                /* binding.searchResults.visibility = View.VISIBLE*/
-                /* binding.searchprogress.progressBar.visibility = View.GONE*/
             }
         }
     }
@@ -57,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                 if (query != null) {
                     viewModel.searchCharacterMorty(query)
                     loadSearch()
-
                 }
                 return true
             }
@@ -84,8 +80,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRv() {
 
-
-
         adapterCharacter = CharacterAdapter()
 
         binding.recyclerRickMorty.apply {
@@ -94,13 +88,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(this@MainActivity, 2)
             setHasFixedSize(true)
         }
-
-        binding.recyclerRickMorty.apply {
-            adapter = adapterCharacter
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
-            setHasFixedSize(true)
-        }
-
     }
 
     private fun setUpViewModel() {

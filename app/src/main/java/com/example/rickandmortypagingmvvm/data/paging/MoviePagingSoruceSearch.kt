@@ -28,7 +28,8 @@ class MoviePagingSourceSearch @Inject constructor(
             val currentPageList = params.key ?: MOVIES_STARTING_PAGE_INDEX
             val response = moviservice.getSearchCharacters(
                 currentPageList,
-                characterName = query
+                characterName = query,
+
             )
             val responseList = mutableListOf<CharacterMorty>()
 
